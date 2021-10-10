@@ -3,7 +3,7 @@
 
 <head>
 
-    <title>APP NAME by Shyann Jobe</title>
+    <title>Sunset Hills by Shyann Jobe</title>
 
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -37,7 +37,7 @@
         <div class="container-fluid">
             <a class="navbar-brand" href="/index.html">
                 <img src="img/mark-white.png" class="d-inline-block aligin-text-top" height="35"> 
-                APP NAME
+                Sunset Hills
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
                 aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
@@ -55,7 +55,7 @@
                         <a class="nav-link active" href="/code.html">The Code</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#" target="_blank">The Repo</a>
+                        <a class="nav-link" href="https://github.com/helloshyann/sunsethills-challenge" target="_blank">The Repo</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="https://helloshyann.com" target="_blank">Portfolio</a>
@@ -75,7 +75,7 @@
         <div class="container px-5 my-5">
             <div class="card text-center p-3">
                 <h1 class="fw-bolder animate__animated animate__bounceIn">View the Code</h1>
-                <p class="lead fw-normal text-muted mb-0">A simple way to view how this program was written.</p>
+                <p class="lead fw-normal text-muted mb-0">A simple way to see how this program was written.</p>
             </div>
 
             <hr>
@@ -83,24 +83,38 @@
             <div class="row row-cols-1 gx-5">
                 <!-- Code Accordion 1-->
                 <div class="col col-md-8">                   
-                    <h2 class="fw-bolder mb-3">JavaScript, HTML, & CSS</h2>
+                    <h2 class="fw-bolder mb-3">JavaScript Functions</h2>
                     <div class="accordion mb-5" id="accordionExample">
                         <div class="accordion-item">
-                            <h3 class="accordion-header" id="headingOne"><button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">JavaScript</button></h3>
+                            <h3 class="accordion-header" id="headingOne"><button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                function displayBuildings()
+                            </button></h3>
                             <div class="accordion-collapse collapse show" id="collapseOne" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
                                 <div class="accordion-body">
                                     
                                     <pre class="line-numbers">
                                         <code class="language-javascript">
-                                            //Get starting values from the DOM
-                                            //Controller function
-                                            function displayMessage(){
-                                                let msg = "";
                                             
-                                                msg = document.getElementById("message").value;
-                                            
-                                                Swal.fire(msg);
-                                            }
+                                            //Button Event
+                                            function displayBuildings() {
+
+                                                let bld1 = Number(document.getElementById('bld1').value);
+                                                let bld2 = Number(document.getElementById('bld2').value);
+                                                let bld3 = Number(document.getElementById('bld3').value);
+                                                let bld4 = Number(document.getElementById('bld4').value);
+                                                let bld5 = Number(document.getElementById('bld5').value);
+
+                                                let buttonArray = [bld1, bld2, bld3, bld4, bld5];
+
+                                                if (bld1 == "" || bld2 == "" || bld3 == "" || bld4 == "" || bld5 == "" ) {
+                                                    document.getElementById("result").innerHTML = `You must input numbers for all buildings.`;
+                                                }
+                                                else {
+                                                    sunsetArray(buttonArray);
+                                                    document.getElementById("result").innerHTML = `${results}`;
+                                                }
+
+                                            };
                                             
                                         </code>
                                     </pre>
@@ -109,20 +123,56 @@
                             </div>
                         </div>
                         <div class="accordion-item">
-                            <h3 class="accordion-header" id="headingTwo"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">HTML 5</button></h3>
+                            <h3 class="accordion-header" id="headingTwo"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                function sunsetArray()
+                            </button></h3>
                             <div class="accordion-collapse collapse" id="collapseTwo" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
                                 <div class="accordion-body">
                                     
                                     <pre class="line-numbers">
                                         <code class="language-javascript">
-                                            //Get starting values from the DOM
-                                            //Controller function
-                                            function displayMessage(){
-                                                let msg = "";
                                             
-                                                msg = document.getElementById("message").value;
-                                            
-                                                Swal.fire(msg);
+                                            //Sunset Hills Main Algorithm
+                                            function sunsetArray() {
+
+                                                //Taking Input Values
+                                                let bld1 = Number(document.getElementById('bld1').value);
+                                                let bld2 = Number(document.getElementById('bld2').value);
+                                                let bld3 = Number(document.getElementById('bld3').value);
+                                                let bld4 = Number(document.getElementById('bld4').value);
+                                                let bld5 = Number(document.getElementById('bld5').value);
+
+                                                //Storing Input Values As An Array
+                                                let allBlds = [bld1, bld2, bld3, bld4, bld5];
+
+                                                let sunsetView = ['Building #1 <i>always</i> watches the sunset'];
+
+                                                //Loop over array and check if the number is smaller to one to left of it
+                                                for (let currentBld = 1; currentBld < allBlds.length; currentBld++) {
+
+                                                    let tallestBld = false;
+
+                                                    for (let prevBld = 0; prevBld < currentBld; prevBld++) {
+                                                        if (allBlds[prevBld] >= allBlds[currentBld]) {
+                                                            tallestBld = true;
+                                                            break;
+                                                        }
+                                                        else {
+                                                            continue;
+                                                        }
+                                                    }
+
+                                                    if (tallestBld == false) {
+                                                        sunsetView.push("Building #" + (currentBld + 1) + " <u>can</u> watch the sunset");
+                                                    }
+                                                    else {
+                                                        sunsetView.push("Building #" + (currentBld + 1) + " <b>can not</b> watch the sunset");
+                                                    }
+
+                                                    let results = sunsetView.join("<br>");
+                                                    document.getElementById("result").innerHTML = `${results}`;
+
+                                                }
                                             }
                                             
                                         </code>
@@ -131,29 +181,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="accordion-item">
-                            <h3 class="accordion-header" id="headingThree"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">CSS 3</button></h3>
-                            <div class="accordion-collapse collapse" id="collapseThree" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
-                                <div class="accordion-body">
-                                    
-                                    <pre class="line-numbers">
-                                        <code class="language-javascript">
-                                            //Get starting values from the DOM
-                                            //Controller function
-                                            function displayMessage(){
-                                                let msg = "";
-                                            
-                                                msg = document.getElementById("message").value;
-                                            
-                                                Swal.fire(msg);
-                                            }
-                                            
-                                        </code>
-                                    </pre>
-
-                                </div>
-                            </div>
-                        </div>
+                        
                     </div>
                 </div>
                 <div class="col col-md-4">
@@ -163,9 +191,13 @@
                                 <div class="text-center">
                                     <div class="h6">Have more questions?</div>
                                     <p class="mb-4">
-                                        
+                                        Get in touch through my website!
                                     </p>
-                                    <div class="h6">Contact Me!</div>
+                                    <div class="d-flex justify-content-center">
+                                        <a type="button" href="https://helloshyann.com/#contact" target="_blank" class="btn hvr-pulse-grow btn-outline-dark">
+                                            Contact Me
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
