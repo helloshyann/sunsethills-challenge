@@ -10,12 +10,14 @@ function displayBuildings() {
     let buttonArray = [bld1, bld2, bld3, bld4, bld5];
 
     if (bld1 == "" || bld2 == "" || bld3 == "" || bld4 == "" || bld5 == "" ) {
-        document.getElementById("result").innerHTML = `You must input numbers for all buildings.`;
+        document.getElementById("result").innerHTML = 
+        `<h1>Uh Oh!</h1><br>You must input values to represent the heights for all buildings.`;
     }
     else {
         sunsetArray(buttonArray);
         document.getElementById("result").innerHTML = `${results}`;
     }
+
 
 };
 
