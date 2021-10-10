@@ -16,6 +16,7 @@ function displayBuildings() {
     else {
         sunsetArray(buttonArray);
         document.getElementById("result").innerHTML = `${results}`;
+        
     }
 
 
@@ -23,6 +24,8 @@ function displayBuildings() {
 
 //Sunset Hills Main Algorithm
 function sunsetArray() {
+
+    confetti.start(1000);
 
     //Taking Input Values
     let bld1 = Number(document.getElementById('bld1').value);
