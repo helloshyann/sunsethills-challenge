@@ -1,1 +1,1 @@
-# js-template
+# Sunset Hills Coding Challenge
